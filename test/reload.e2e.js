@@ -1,12 +1,35 @@
 'use strict';
 const {test,expect}=require('@playwright/test');
 
+test('application survives globals injected by other scripts before startup',async({page})=>{
+ const errors=[];page.on('pageerror',error=>errors.push(error.message));
+ await page.route('**/api/snapshot*',route=>route.fulfill({status:503,json:{ok:false}}));
+ await page.route('**/theme.js',async route=>{
+  const response=await route.fetch();
+  await route.fulfill({response,body:'var t = "external-script", $ = "external-selector", state = "external-state";\n'+await response.text()});
+ });
+ await page.goto('/');
+ for(let reload=0;reload<2;reload++){
+  if(reload)await page.reload();
+  await page.locator('[data-view-target="studio"]').click();
+  await expect(page.locator('[data-view="studio"]')).toBeVisible();
+  await page.locator('[data-language="en"]').click();
+  await expect(page.locator('html')).toHaveAttribute('lang','en');
+  const theme=await page.locator('html').getAttribute('data-theme');
+  await page.locator('#themeToggle').click();
+  await expect(page.locator('html')).not.toHaveAttribute('data-theme',theme);
+  await page.locator('[data-view-target="leaderboard"]').click();
+  await expect(page.locator('[data-view="leaderboard"]')).toBeVisible();
+ }
+ expect(errors).toEqual([]);
+});
+
 test('theme remains clickable during a reload while later scripts are loading',async({page})=>{
  await page.route('**/api/snapshot*',route=>route.fulfill({status:503,json:{ok:false}}));
  await page.goto('/#leaderboard');
  let release;
  const pending=new Promise(resolve=>{release=resolve;});
- await page.route('**/journey.js',async route=>{await pending;await route.continue();});
+ await page.route('**/workspace.js',async route=>{await pending;await route.continue();});
  try {
   await page.reload({waitUntil:'commit'});
   await expect(page.locator('#themeToggle')).toBeVisible();

@@ -29,6 +29,12 @@ const security = {
   'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
 };
 async function resource(url) {
+  // Keep shared application declarations out of the page's global scope.
+  // Extensions and injected scripts can otherwise collide with names such as t.
+  if (url === '/workspace.js') {
+    const sources = await Promise.all(['app.js', 'copy.js', 'studio.js', 'journey.js'].map(name => fs.readFile(path.join(staticRoot, name), 'utf8')));
+    return { data: `(function () {\n'use strict';\n${sources.join('\n;\n')}\n})();\n`, type: mime['.js'] };
+  }
   if (url === '/vendor/lucide.js') return { data: await fs.readFile(path.join(__dirname, 'node_modules/lucide/dist/umd/lucide.min.js')), type: mime['.js'] };
   let decoded;
   try { decoded = decodeURIComponent(url); } catch { throw httpError(400, 'Invalid URL encoding.'); }
