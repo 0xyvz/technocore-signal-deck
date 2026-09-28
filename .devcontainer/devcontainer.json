@@ -1,0 +1,17 @@
+{
+  "name": "Technocore Signal Deck",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [5192],
+  "portsAttributes": {
+    "5192": {
+      "label": "Signal Deck",
+      "onAutoForward": "notify",
+      "protocol": "http"
+    }
+  },
+  "containerEnv": {
+    "HOST": "0.0.0.0",
+    "PORT": "5192"
+  }
+}

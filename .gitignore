@@ -1,0 +1,21 @@
+node_modules/
+test-results/
+playwright-report/
+.DS_Store
+.env
+.env.*
+!.env.example
+keys/
+*.private-key.json
+*-private-key.json
+*.encrypted.json
+coverage/
+
+# Private material must never enter the repository.
+*.pem
+*.key
+*.p12
+*.pfx
+*.jwk
+backups/
+*.zip

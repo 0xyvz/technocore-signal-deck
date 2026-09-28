@@ -1,0 +1,23 @@
+{
+  "name": "technocore-signal-deck",
+  "version": "1.0.0",
+  "description": "An independent Technocore identity studio and Close Call workspace.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "test": "node --test test/*.test.js",
+    "test:e2e": "playwright test",
+    "check": "node scripts/check.js"
+  },
+  "dependencies": {
+    "lucide": "^0.468.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "0xyvz"
+}

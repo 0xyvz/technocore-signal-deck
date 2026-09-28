@@ -1,0 +1,29 @@
+/* The accent remains lime; surfaces and status colors adapt independently. */
+.theme-toggle{flex-shrink:0;width:34px;height:34px}.theme-toggle svg{width:16px;height:16px}.theme-sun{display:none}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#111813;--white:#1a231c;--ink:#edf2e8;--muted:#a2b09b;--line:#354331;--lime:#d6f85a;--green:#97d5ac;--red:#f1aa96;--soft:#263224;--theme-deep:#1e2c21;--theme-positive:#263c2c;--theme-negative:#3b2925;--theme-warning:#372f20}
+[data-theme="dark"] .theme-sun{display:block}[data-theme="dark"] .theme-moon{display:none}
+[data-theme="dark"] :is(.metrics-grid,.market-panel,.tape-panel,.ticket-panel,.import-panel,.vault-panel,.tools-panel,.account-strip,.rules-grid article,.guide-steps article,.guide-article,.registration-card,.ranking-panel,.dialog,.secondary,.direction-control>button,.take-button,.signed-output pre){background:var(--white)}
+[data-theme="dark"] :is(.instrument-card,.identity-block,.guide-summary,.ranking-summary){background:var(--theme-deep);color:var(--ink);border:1px solid var(--line)}
+[data-theme="dark"] :is(.primary,.nav-item.active,.toast){background:var(--lime);color:#202c26}
+[data-theme="dark"] :is(.primary:hover:enabled,.market-heading>.primary:hover,.primary.lime-button:hover){background:#c7eb48;color:#202c26}
+[data-theme="dark"] :is(.primary.lime-button,.market-heading>.primary,.asset-icon,.ranking-you,.journey-rail button.current>span:first-child,.skip-link){color:#202c26}
+[data-theme="dark"] :is(.nav-item:hover:not(.active),.icon-button:hover,.secondary:hover:enabled,.language-switch button.active,.filter-tabs button.active,.tool-tabs>button.active){background:#33412e;color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] :is(.referee-panel,.price-guard,.start-strip,.facts-table,.worked-example,.guide-timeline,.registration-explain,.backup-notice,.signed-output,.dialog-warning){background:var(--soft);border-color:var(--line)}
+[data-theme="dark"] :is(.signer-bar,.filter-tabs,.tool-tabs,.market-labels,.ranking-table-head,.direction-explainer>div,.status-badge,.status-badge.pending,.count-badge,.trade-status){background:#202b20}
+[data-theme="dark"] :is(.start-icon,.range-track){background:#394a2d}
+[data-theme="dark"] :is(.status-badge.live,.trade-status.settled,.direction-chip.long,.direction-control>button.active.long,.verification-result,.ranking-notice,.registration-progress>div.done>span,.ranking-row.me){background:var(--theme-positive);border-color:#496448;color:var(--green)}
+[data-theme="dark"] :is(.status-badge.danger,.trade-status.void,.direction-chip.short,.direction-control>button.active.short,.verification-result.error){background:var(--theme-negative);border-color:#775042;color:var(--red)}
+[data-theme="dark"] :is(.warning-band,.registration-notice,.ranking-notice.stale){background:var(--theme-warning);border-color:#655735;color:#e5c590}
+[data-theme="dark"] :is(.ranking-notice.stale p,.risk-note){color:#d4be96}
+[data-theme="dark"] :is(input,select,textarea,.input-affix){background:#141d15;border-color:var(--line);color:var(--ink)}
+[data-theme="dark"] :is(input,select,textarea):focus{background:var(--white);border-color:#9fb977}
+[data-theme="dark"] .input-affix input{background:transparent;border:0}
+[data-theme="dark"] .ranking-search input{background:transparent;border:0}
+[data-theme="dark"] ::placeholder{color:#8e9b88;opacity:1}
+[data-theme="dark"] :is(.eyebrow,.metric small,.metric>span svg,.start-strip>div>span,.market-labels,.call-cell code,.empty-state,.empty-state>svg,.referee-price>span,.referee-panel .section-heading>svg,.metrics-list dt,.leaderboard-heading,.leader-row>span,.trade-status,.field small,.input-affix b,.plain-rule>p,.plain-rule>span,.privacy-tag,.backup-notice p,.tool-tabs>button,.site-footer,.footer-brand,.guide-disclaimer,.guide-steps article>svg,.worked-example span,.worked-example p,.guide-timeline span:not(.eyebrow),.guide-timeline small,.registration-progress>div,.registration-explain>p,.ranking-notice p,.rank-number){color:var(--muted)}
+[data-theme="dark"] .empty-state>strong{color:var(--ink)}
+[data-theme="dark"] .registration-progress>div.done{color:var(--green)}
+[data-theme="dark"] :is(.identity-trigger,.asset-tag,.instrument-bottom,.market-labels,.offer-row,.take-button,.metrics-list,.leaderboard-heading,.leader-row,.trade-tape,.tape-row,.plain-rule,.facts-table>div,.guide-timeline>div:not(:first-child),.radar-link,.ranking-row){border-color:var(--line)}
+[data-theme="dark"] .take-button:hover:enabled{background:var(--lime);color:#202c26;border-color:var(--lime)}
+[data-theme="dark"] .dialog-backdrop{background:#050905cc}
+@media(max-width:480px){.masthead{padding-inline:5%;gap:8px}.header-end{gap:6px}.brand{gap:8px}.brand strong{font-size:20px}.brand-mark{width:30px;height:30px}.language-switch button{padding:7px 5px}.theme-toggle{width:30px;height:30px}.header-end .mobile-only{width:30px;height:30px}}
