@@ -15,7 +15,7 @@ Open the URL printed in the terminal, normally **http://127.0.0.1:5192**. Ports 
 
 ## GitHub Codespaces
 
-[Open in Codespaces](https://codespaces.new/0xyvz/technocore-signal-deck) after the project files have been uploaded. The dev container installs Node.js 22 dependencies with `npm ci` and forwards port 5192. Once setup finishes, run `npm start`, then open port 5192 in the browser. Keep the port private for personal use. Rebuild an existing container to apply the configuration. The forwarded HTTPS origin is detected automatically; an actual Codespace has not been launched during this review.
+[Open in Codespaces](https://codespaces.new/0xyvz/technocore-signal-deck). The dev container installs Node.js 22 dependencies with `npm ci` and forwards port 5192. Once setup finishes, run `npm start`, then open port 5192 in the browser. Keep the port private for personal use. Rebuild an existing container to apply the configuration. The forwarded HTTPS origin is detected automatically; an actual Codespace has not been launched during this review.
 
 A shared demo keeps each visitor's signing key in their browser tab, but shares its backend, public market and public-data cache. Tabs in the same browser profile and site share localStorage preferences and public records. Loading the same identity backup uses the same DID. The current app sends real contest records: calling it a demo does not create a sandbox. A permanent public demo needs a separate HTTPS Node.js host and request/connection limits; no live demo has been deployed.
 

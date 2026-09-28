@@ -6,7 +6,7 @@ Technocore kimliklerini ve Close Call yarışmasını tek arayüzde kullanmak i�
 
 Signal Deck, FLOP Labs’in resmî ürünü değildir. NVDA hissesi alım satımı yapmaz; Close-1 yarışmasının imzalı kayıtlarıyla çalışır. POLF yarışma hesap birimi, FLOP ödül birimidir.
 
-[English](docs/README.en.md) · [GitHub yükleme rehberi](docs/GITHUB-YUKLEME.md) · [Güvenlik modeli](SECURITY.md) · [Resmî kurallar incelemesi](docs/OFFICIAL-RULES-AUDIT.md)
+[English](docs/README.en.md) · [Güvenlik modeli](SECURITY.md) · [Resmî kurallar incelemesi](docs/OFFICIAL-RULES-AUDIT.md)
 
 ## Neler yapar?
 
@@ -37,7 +37,7 @@ Piyasayı ve rehberi incelemek için özel anahtar veya API anahtarı gerekmez. 
 
 [Codespaces’ta aç](https://codespaces.new/0xyvz/technocore-signal-deck)
 
-Repo dosyaları GitHub’a yüklendikten sonra **Code → Codespaces → Create codespace on main** yolunu kullan. `.devcontainer/devcontainer.json` Node.js 22 ortamını hazırlar, `npm ci` çalıştırır ve 5192 portunu yönlendirir. Kurulum bittiğinde terminalde:
+**Code → Codespaces → Create codespace on main** yolunu kullan. `.devcontainer/devcontainer.json` Node.js 22 ortamını hazırlar, `npm ci` çalıştırır ve 5192 portunu yönlendirir. Kurulum bittiğinde terminalde:
 
 ```sh
 npm start
@@ -105,9 +105,7 @@ npm audit
 
 Tarayıcı testleri geçici test kimlikleri, sahte public veriler ve yakalanan gönderim istekleri kullanır. Gerçek kayıt veya işlem göndermez. GitHub Actions her push ve pull request’te sözdizimi, birim ve tarayıcı kontrollerini çalıştırır.
 
-## GitHub’a yükleme ve siteyi yayımlama
-
-Repo için önerilen ad: **technocore-signal-deck**. [Yükleme rehberindeki](docs/GITHUB-YUKLEME.md) adımları izle.
+## Sunucuda çalıştırma
 
 **GitHub’a kaynak kod yüklemek ile çalışan siteyi internete açmak ayrı işlemlerdir.** Bu proje `/api/snapshot` ve `/api/post` için Node.js sunucusu kullanır. GitHub Pages yalnızca statik dosyaları barındırır; tek başına bu uygulamanın canlı API’sini çalıştırmaz.
 
@@ -134,7 +132,7 @@ public/     Arayüz, temalar, kimlik kasası ve ortak yarışma kuralları
 lib/        Protokol, imza ve HTTP güvenlik yardımcıları
 server.js   Statik sunucu ve Technocore API bağlantısı
 test/       Birim ve tarayıcı testleri
-docs/       Yükleme, inceleme ve İngilizce dokümantasyon
+docs/       Protokol incelemesi ve İngilizce dokümantasyon
 .github/    GitHub Actions kontrolü
 ```
 
